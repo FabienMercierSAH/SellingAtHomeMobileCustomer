@@ -1,0 +1,96 @@
+page-login {
+
+	.login-content {
+    	background: url("../assets/imgs/dashboard.jpg") top center no-repeat #000;
+    	background-size: cover;
+    	display: flex;
+    	display: -webkit-flex;
+    	align-items: center;
+    	-webkit-align-items: center;
+    	margin: 0;
+    	padding: 0;
+    	top: 0;
+
+    	.scroll-content {
+    		overflow-y: auto!important;  
+            display: flex;
+            display: -webkit-flex;
+            align-items: center;
+            -webkit-align-items: center;  
+            margin: 0!important;  	
+            padding-top: 75px!important;    
+    	}
+
+    	&:before {
+    		content:" ";
+    		background:rgba(0,0,0,0.7);
+    		position:absolute;
+    		top:0;
+    		left:0;
+    		right:0;
+    		bottom:0;
+    	}
+
+    	.scroll {
+    		flex: 1;
+    		-webkit-flex: 1;
+    		height: auto;
+    	}
+    }
+
+	.login-header {
+		height: 75px;
+	    line-height: 75px;
+    	text-align:center;
+    	background: #fff;
+
+    	#logo-brand {
+			height: 25px;
+    		margin: 25px auto 0;
+    	}
+    }
+
+    #login-form {
+    	text-align: center;
+    	padding: 0 20px;
+    	margin:0;
+        width: 100%;
+
+    	h2 {
+    		color:#fff;
+    		font-weight: 300;
+    		text-transform: uppercase;
+    		font-size:1.35em;
+
+    		&:before {
+    			font-family: 'Ionicons';
+    			content: "\f1b0";
+    			display:inline-block;
+    			margin: 0 10px 0 0 ;
+    		}
+    	}
+
+        .item-input {
+            background: transparent;
+
+            .item-inner{
+                border: none;
+            }
+        }
+
+        input {
+            background:#fff;
+            padding: 0;
+            line-height: 45px;
+            text-align: center;
+            border-radius:2px;
+            width: 100%;
+        }
+
+        .btn {
+            margin: 20px 0;
+            text-transform: uppercase;
+        }
+    }
+
+}

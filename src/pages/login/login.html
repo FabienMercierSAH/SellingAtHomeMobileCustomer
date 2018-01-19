@@ -1,0 +1,30 @@
+
+<ion-header class="login-header">
+	<img src="../assets/imgs/logo.svg" id="logo-brand" alt="" />
+</ion-header>
+
+<ion-content padding class="login-content">
+
+	<form name="loginForm" id="login-form">
+        <h2>CONNEXION</h2>
+        
+        <ion-item>
+	    	<ion-input [(ngModel)]="user.login"
+	    		name="login"
+	    		placeholder="Identifiant" clearInput>
+	    	</ion-input>
+	  	</ion-item>
+
+	  	<ion-item>
+    		<ion-input [(ngModel)]="user.password"
+    			name="password"
+    			type="password" placeholder="Mot de passe" clearInput>
+    		</ion-input>
+  		</ion-item>
+    	
+    	<button ion-button round (click)="login()" class="btn">CONNEXION</button>
+
+    </form>
+
+
+</ion-content>
