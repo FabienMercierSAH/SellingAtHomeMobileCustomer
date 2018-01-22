@@ -2,7 +2,12 @@ import { BrowserModule } from '@angular/platform-browser'
 import { ErrorHandler, NgModule } from '@angular/core'
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular'
 import { FormsModule } from '@angular/forms'
-import { HttpModule } from '@angular/http'
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AppVersion } from '@ionic-native/app-version'
+import { Device } from '@ionic-native/device';
+
+
+import { ApiInterceptor } from './auth/http.interceptor'
 
 import { MyApp } from './app.component'
 import { LoginPage } from '../pages/login/login'
@@ -24,7 +29,8 @@ import { LoginProvider } from '../providers/login/login'
     BrowserModule,
     IonicModule.forRoot(MyApp),
     FormsModule,
-    HttpModule,
+    HttpClientModule,
+
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -36,7 +42,17 @@ import { LoginProvider } from '../providers/login/login'
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    AppVersion,
+    Device,
+    {
+      provide: ErrorHandler, 
+      useClass: IonicErrorHandler
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ApiInterceptor,
+      multi: true,
+    },
     LoginProvider
   ]
 })

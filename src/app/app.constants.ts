@@ -7,5 +7,6 @@ export const CONFIG = {
 		TEST: 'https://restcountries.eu/rest/v2/all'
 	},
 
+	
 
 };

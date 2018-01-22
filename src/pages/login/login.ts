@@ -28,9 +28,9 @@ export class LoginPage {
 		console.log('ionViewDidLoad LoginPage')
 	}
 
-	presentAlert(msg: string) {
+	presentAlert(title: string, msg: string) {
 		let alert = this.alertCtrl.create({
-			title: 'Attention',
+			title: title,
 			subTitle: "<BR />" + msg,
 			buttons: ['OK']
 		})
@@ -40,7 +40,7 @@ export class LoginPage {
 
 	login() {
 		if(this.user.login === "" || this.user.password === "" ){
-			this.presentAlert("Vous devez remplir tous les champs.")
+			this.presentAlert("Attention","Vous devez remplir tous les champs.")
 		}
 		else{
 		    this._login.getUser(this.user.login, this.user.password)
@@ -48,12 +48,12 @@ export class LoginPage {
 		         user_id => this.user.id = user_id,
 		         error =>  {
 		         	this.errorMessage = <any>error
-		         	this.presentAlert("Utilisateur inconnu.<BR /><BR />Veuillez vérifier les informations saisies.")
+		         	this.presentAlert("Attention","Utilisateur inconnu.<BR /><BR />Veuillez vérifier les informations saisies.")
 		         },
 		       	 () => { 
 		       	 	console.log(this.user) 
 
-		       	 	this.navCtrl.push(HomePage);
+		       	 	this.navCtrl.push(HomePage)
 
 		       	 })    
 		}
